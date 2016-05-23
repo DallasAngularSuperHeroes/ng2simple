@@ -3,15 +3,20 @@ import * as fallback from 'express-history-api-fallback';
 import * as openResource from 'open';
 import { resolve } from 'path';
 import * as serveStatic from 'serve-static';
+import * as router from '../../../src/server/routes/dashRouter';
 
 import * as codeChangeTool from './code_change_tools';
 import { APP_BASE, COVERAGE_PORT, DOCS_DEST, DOCS_PORT, PORT, PROD_DEST } from '../../config';
+
 
 /**
  * Serves the Single Page Application.
  * More specifically, calls the `listen` method, which itself launches BrowserSync.
  */
 export function serveSPA() {
+  let server = express();
+  // server.use('/', router);
+
   codeChangeTool.listen();
 }
 

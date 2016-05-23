@@ -1,11 +1,12 @@
 import { FORM_DIRECTIVES } from '@angular/common';
 import { Component } from '@angular/core';
 
-import { NameListService } from '../shared/index';
+import { MemberListService } from '../shared/index';
 
 @Component({
   moduleId: module.id,
   selector: 'sd-memberList',
+  // providers: ['MemberListService'],
   templateUrl: 'memberList.component.html',
   styleUrls: ['memberList.component.css'],
   directives: [FORM_DIRECTIVES]
@@ -15,25 +16,21 @@ import { NameListService } from '../shared/index';
  */
 export class MemberListComponent {
 
-  newName: string;
+  newMember: string;
 
   /**
    * Creates an instance of the MemberListComponent with the injected
-   * NameListService.
+   * MemberListService.
    *
-   * @param {NameListService} nameListService the injected NameListService
+   * @param {MemberListService} memberListService the injected MemberListService
    */
-  constructor(public nameListService: NameListService) {}
+  //constructor() {}
+  constructor(public memberListService: MemberListService) {}
 
-  /**
-   * Calls the add method of the NameListService with the current
-   * newName value of the form.
-   * @return {boolean} false to prevent default form submit behavior to refresh the page.
-   */
-  addName(): boolean {
-    this.nameListService.add(this.newName);
-    this.newName = '';
-    return false;
-  }
-
-}
+    //this.members = memberListService.get();
+    // addMember(): boolean {
+    //   this.memberListService.add(this.newMember);
+    //   this.newMember = '';
+    //   return false;
+  
+};

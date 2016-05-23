@@ -19,26 +19,26 @@ import { NameListService } from '../shared/index';
 // import { MemberComponent } from './member.component';
 
 export function main() {
-  describe('MemberList component', () => {
+  describe('Member component', () => {
     it('should work',
       inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
         tcb.createAsync(TestComponent)
           .then((rootTC: any) => {
             rootTC.detectChanges();
 
-            let memberListInstance = rootTC.debugElement.children[0].componentInstance;
-            let memberListDOMEl = rootTC.debugElement.children[0].nativeElement;
+            let memberInstance = rootTC.debugElement.children[0].componentInstance;
+            let memberDOMEl = rootTC.debugElement.children[0].nativeElement;
 
-            expect(memberListInstance.nameListService).toEqual(jasmine.any(NameListService));
-            expect(getDOM().querySelectorAll(memberListDOMEl, 'li').length).toEqual(0);
+            expect(memberInstance.nameListService).toEqual(jasmine.any(NameListService));
+            expect(getDOM().querySelectorAll(memberDOMEl, 'li').length).toEqual(0);
 
-            memberListInstance.newName = 'Minko';
-            memberListInstance.addName();
+            memberInstance.newName = 'Minko';
+            memberInstance.addName();
             rootTC.detectChanges();
 
-            expect(getDOM().querySelectorAll(memberListDOMEl, 'li').length).toEqual(1);
+            expect(getDOM().querySelectorAll(memberDOMEl, 'li').length).toEqual(1);
 
-            expect(getDOM().querySelectorAll(memberListDOMEl, 'li')[0].textContent).toEqual('Minko');
+            expect(getDOM().querySelectorAll(memberDOMEl, 'li')[0].textContent).toEqual('Minko');
           });
       }));
   });
@@ -58,7 +58,7 @@ export function main() {
     }),
   ],
   selector: 'test-cmp',
-  template: '<sd-memberList></sd-memberList>'
+  template: '<sd-member></sd-member>'
   // directives: [MemberComponent]
 })
 class TestComponent {}

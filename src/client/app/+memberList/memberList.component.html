@@ -3,12 +3,15 @@
   Do you know any others? Add to the list yourself.
 </p>
 
-<form (submit)="addName()">
-  <input [(ngModel)]="newName" placeholder="Awesome Computer Scientist">
-  <button type="submit">Add</button>
-</form>
+<h1>Member List</h1>
+<!--<form (submit)="addName()">-->
+  <!--<input [(ngModel)]="newName" placeholder="Awesome Computer Scientist">-->
+  <!--<button type="submit">Add</button>-->
+<!--</form>-->
 
 
 <ul>
-  <li *ngFor="let name of nameListService.get() | async">{{name}}</li>
+  <li *ngFor="let member of memberListService.get() | async">
+  <a href="/member/{{member.id}}">{{member.name}}</a>
+  </li>
 </ul>

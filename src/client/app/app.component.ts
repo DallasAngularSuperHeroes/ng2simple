@@ -3,16 +3,15 @@ import { ROUTER_DIRECTIVES, Routes } from '@angular/router';
 import { HTTP_PROVIDERS} from '@angular/http';
 
 import { AboutComponent } from './+about/index';
-import { HomeComponent } from './+home/index'
-import { MemberListComponent } from './+memberList/index'
-
-import { NameListService, NavbarComponent, ToolbarComponent } from './shared/index';
+import { HomeComponent } from './+home/index';
+import { MemberComponent } from './+member/index';
+import { MemberListComponent } from './+memberList/index';
+import { NameListService, MemberListService, NavbarComponent, ToolbarComponent } from './shared/index';
 
 @Component({
-  moduleId: module.id,
   selector: 'sd-app',
-  viewProviders: [NameListService, HTTP_PROVIDERS],
-  templateUrl: 'app.component.html',
+  viewProviders: [NameListService, MemberListService, HTTP_PROVIDERS],
+  templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
 })
 @Routes([
@@ -25,6 +24,10 @@ import { NameListService, NavbarComponent, ToolbarComponent } from './shared/ind
     component: MemberListComponent
   },
   {
+    path: '/member/:id',
+    component: MemberComponent
+  },
+  {
     path: '/about',
     component: AboutComponent
   }
@@ -33,6 +36,6 @@ import { NameListService, NavbarComponent, ToolbarComponent } from './shared/ind
  * This class represents the main application component.
  * Within the @Routes annotation is the configuration of the
  * applications routes, configuring the paths for the lazy
- * loaded components (HomeComponent, MemberListComponent, MemberGridComponent, MemberComponent, AboutComponent).
+ * loaded components (HomeComponent, AboutComponent).
  */
 export class AppComponent {}

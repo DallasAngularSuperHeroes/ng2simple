@@ -11,7 +11,7 @@
     "pretty": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true
@@ -22,6 +22,10 @@
     "typings/browser.d.ts",
     "typings/browser",
     "src"
+  ],
+  "files": [
+    "gulpfile.ts",
+    "src/server/**/*.ts"
   ],
   "compileOnSave": false
 }
